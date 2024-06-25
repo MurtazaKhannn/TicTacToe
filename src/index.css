@@ -1,0 +1,157 @@
+@font-face {
+  font-family: 'Danfo';
+  src: url('path/to/danfo.woff2') format('woff2'),
+       url('path/to/danfo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: 'Danfo',  consolas;
+}
+
+.tic-tac-toe {
+  width: fit-content;
+  margin: 40px auto;
+  text-align: center;
+}
+.tic-tac-toe h1 {
+  color: #000000;
+  font-family: 'Danfo', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin-bottom: 2.5rem;
+}
+
+.tic-tac-toe button {
+  padding: 8px 12px;
+  margin: 15px;
+  background: transparent;
+  border: 2px solid #000000;
+  color: #000000;
+  width: 120px;
+  height: 40px;
+  /* margin-left:7rem; */
+  /* margin-top: 3rem; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  border-radius: 10px;
+  transition: 0.2s;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Impact';
+  font-size: large;
+}
+
+.tic-tac-toe button:hover {
+  background: #ffffff;
+  color: #222;
+}
+.tic-tac-toe .game {
+  display: grid;
+  grid-template-columns: repeat(3, 11fr);
+  gap: 10px;
+}
+.turn {
+  display: flex;
+  justify-content: center;
+  margin: 15px auto;
+  width: fit-content;
+  position: relative;
+  border-radius: 10px;
+}
+
+.turn .square,
+.winner .square {
+  width: 70px;
+  height: 70px;
+  pointer-events: none;
+  border-color: transparent;
+  border-radius: 20px;
+}
+
+.turn .square span.x::before,
+.turn .square span.x::after {
+  background: #ffa02e;
+  transition: 1s;
+  border-radius: 9px;
+}
+
+.turn .square span.o {
+  transition: 1s;
+  border-color: #e5e;
+}
+
+.turn::after {
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 100%;
+  top: 0;
+  background: #cc5252;
+  border-radius: 40px;
+  z-index: -1;
+  transition: 0.2s;
+}
+
+.turn.left::after {
+  left: 0;
+}
+
+.turn.left span.o {
+  border-color: #000;
+}
+.turn.right span.x::before,
+.turn.right span.x::after {
+  background: #000000;
+}
+.turn.right::after {
+  left: 50%;
+}
+
+.winner {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.winner .text {
+  background: #a8e2a8;
+  opacity: 90%;
+  width: 80%;
+  max-width: 500px;
+  height: 400px;
+  border: 15px solid #000000;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.winner .text h2 {
+  font-size: 3.5rem;
+  margin: 15px 0;
+  color: #000000;
+}
+
+.winner .win {
+  margin: 0 auto;
+  width: fit-content;
+  border: 5px solid #0e0e0e;
+  border-radius: 40px;
+  display: flex;
+  gap: 15px;
+}
